@@ -1,19 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import useHook from "../Hook/useHook";
+
 
 const Header = () => {
+const {user, logout } = useHook();
   const links = (
     <>
       <li>
-        <NavLink to='/'>Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to='/home'>Home 2</NavLink>
+        <NavLink to="/home">Home 2</NavLink>
       </li>
       <li>
-        <NavLink to='/login'>Login</NavLink>
+        <NavLink to="/SignIn">Login</NavLink>
       </li>
       <li>
-        <NavLink to='/signUp'>Registration</NavLink>
+        <NavLink to="/signUp">Registration</NavLink>
       </li>
     </>
   );
@@ -51,7 +54,39 @@ const Header = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    src={
+                      user?.photoURL ||
+                      "https://i.ibb.co/88cC8TK/Profile-Photo.jpg"
+                    }
+                  />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+              >
+                <li>
+                  <button className="btn btn-sm  btn-ghost">
+                    {user?.displayName || "user name not found"}
+                  </button>
+                </li>
+                <li>
+                  <button onClick={logout} className="btn btn-sm  btn-ghost">
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/login">
+              <button className="btn btn-sm  btn-ghost">Login</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>
