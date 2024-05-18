@@ -6,6 +6,8 @@ import Main from './layout/Main.jsx'
 import SignUp from './pages/SignUp.jsx'
 import AuthProvider from './provider/AuthProvider.jsx'
 import SignIn from './pages/SignIn.jsx'
+import Home from './pages/Home.jsx'
+import AddSpots from './AddSpots.jsx'
 
 const router = createBrowserRouter([
   {
@@ -14,13 +16,22 @@ const router = createBrowserRouter([
     children : [
       
         {
+          path:'/',
+          element : <Home />
+        },
+        {
           path:'/signUp',
           element : <SignUp />
         },
         {
           path:'/SignIn',
           element : <SignIn />
+        },
+        {
+          path:'/addSpot',
+          element : <AddSpots />
         }
+
       
     ]
   }

@@ -10,7 +10,7 @@ const {user, logout } = useHook();
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink to="/home">Home 2</NavLink>
+        <NavLink to="/addSpot">Add Spot</NavLink>
       </li>
       <li>
         <NavLink to="/SignIn">Login</NavLink>
@@ -83,7 +83,7 @@ const {user, logout } = useHook();
               </ul>
             </div>
           ) : (
-            <Link to="/login">
+            <Link to="/SignIn">
               <button className="btn btn-sm  btn-ghost">Login</button>
             </Link>
           )}
