@@ -8,7 +8,7 @@ import "swiper/css/controller";
 
 const Slider = () => {
   return (
-    <section className="bg-white mt-10 mx-4 sm:mx-8 md:mx-20 lg:mx-50 z-10">
+    <section className="mt-10 mx-4 sm:mx-8 md:mx-20 lg:mx-50 z-10">
       <div className="text-center font-extrabold text-2xl my-8">
       You're going to fall in love with nature
       </div>

@@ -223,7 +223,6 @@ const AddSpots = () => {
             </div>
           </div>
         </form>
-      
       </div>
       <Toaster />
     </div>

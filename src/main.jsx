@@ -9,6 +9,8 @@ import SignIn from './pages/SignIn.jsx'
 import Home from './pages/Home.jsx'
 import AddSpots from './AddSpots.jsx'
 
+const url = "http://localhost:5000/spots"
+
 const router = createBrowserRouter([
   {
     path:'/',
@@ -17,7 +19,9 @@ const router = createBrowserRouter([
       
         {
           path:'/',
-          element : <Home />
+          element : <Home />,
+          loader :async () => fetch(url)
+
         },
         {
           path:'/signUp',
