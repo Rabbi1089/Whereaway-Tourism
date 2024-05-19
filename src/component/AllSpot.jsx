@@ -1,6 +1,7 @@
 import React from "react";
 import Spot from "./Spot";
 
+
 const AllSpot = ({ spot }) => {
   console.log(typeof spot);
   return (

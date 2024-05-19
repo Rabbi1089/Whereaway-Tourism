@@ -9,6 +9,9 @@ import SignIn from './pages/SignIn.jsx'
 import Home from './pages/Home.jsx'
 import AddSpots from './AddSpots.jsx'
 import SpotDetails from './component/SpotDetails.jsx'
+import AllTouristSpot from './pages/AllTouristSpot.jsx'
+
+
 
 const url = "http://localhost:5000/spots"
 
@@ -27,6 +30,11 @@ const router = createBrowserRouter([
         {
           path:'/signUp',
           element : <SignUp />
+        },
+        {
+          path:'/touristsSpots',
+          element : <AllTouristSpot/>,
+          loader :async () => fetch(url)
         },
         {
           path:'/SignIn',

@@ -10,14 +10,17 @@ const {user, logout } = useHook();
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
+        <NavLink to="/touristsSpots"> Tourists Spots</NavLink>
+      </li>
+      <li>
         <NavLink to="/addSpot">Add Spot</NavLink>
       </li>
       <li>
         <NavLink to="/SignIn">Login</NavLink>
       </li>
-      <li>
+      {/* <li>
         <NavLink to="/signUp">Registration</NavLink>
-      </li>
+      </li> */}
     </>
   );
   return (
