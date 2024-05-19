@@ -1,8 +1,8 @@
 import React from "react";
 import Spot from "./Spot";
 
-const AllSpot = ({spot}) => {
-    console.log(typeof(spot))
+const AllSpot = ({ spot }) => {
+  console.log(typeof spot);
   return (
     <div>
       <section className="text-gray-800 mt-4 max-w-[1400px]">
@@ -19,7 +19,7 @@ const AllSpot = ({spot}) => {
             />
             <div className="p-6 space-y-2 lg:col-span-5">
               <h3 className="text-2xl font-semibold sm:text-4xl group-hover:underline group-focus:underline">
-                Travel Broadens The Mind 
+                Travel Broadens The Mind
               </h3>
 
               <p>
@@ -33,9 +33,12 @@ const AllSpot = ({spot}) => {
               </p>
             </div>
           </div>
-          <Spot />
+          <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {spot.map((place) => (
+              <Spot place={place}></Spot>
+            ))}
+          </div>
         </div>
-   
       </section>
     </div>
   );
