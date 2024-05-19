@@ -38,7 +38,8 @@ const Spot = ({place}) => {
 {description.slice(0, 250)}...
         </p>
         </div>
-        <Link to={`SpotDetails/${_id}`}>
+
+        <Link to={`/touristsSpots/SpotDetails/${_id}`}>
         <button className="btn border border-r-4 w-full">Show Details</button>
         </Link>
  

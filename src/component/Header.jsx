@@ -14,6 +14,9 @@ const Header = () => {
       <li>
         <NavLink to="/addSpot">Add Spot</NavLink>
       </li>
+      <li>
+        <NavLink to="/myList">My List</NavLink>
+      </li>
       {!user && (
         <>
           {" "}

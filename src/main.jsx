@@ -11,8 +11,10 @@ import AddSpots from "./AddSpots.jsx";
 import SpotDetails from "./component/SpotDetails.jsx";
 import AllTouristSpot from "./pages/AllTouristSpot.jsx";
 import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
+import MyList from "./pages/MyList.jsx";
 
 const url = "http://localhost:5000/spots";
+
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
         element: <SignIn />,
       },
       {
+        path: "/myList",
+        element: <MyList/>
+      },
+      {
         path: "/addSpot",
         element: (
           <PrivateRoute>
@@ -50,7 +56,7 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "SpotDetails/:id",
+        path: "touristsSpots/SpotDetails/:id",
         element: <SpotDetails />,
         loader: async ({ params }) => fetch(`${url}/${params.id}`),
       },
