@@ -1,9 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import useHook from "../Hook/useHook";
 
-
 const Header = () => {
-const {user, logout } = useHook();
+  const { user, logout } = useHook();
   const links = (
     <>
       <li>
@@ -15,12 +14,17 @@ const {user, logout } = useHook();
       <li>
         <NavLink to="/addSpot">Add Spot</NavLink>
       </li>
-      <li>
-        <NavLink to="/SignIn">Login</NavLink>
-      </li>
-      {/* <li>
-        <NavLink to="/signUp">Registration</NavLink>
-      </li> */}
+      {!user && (
+        <>
+          {" "}
+          <li>
+            <NavLink to="/SignIn">Login</NavLink>
+          </li>
+          <li>
+            <NavLink to="/signUp">Register</NavLink>
+          </li>{" "}
+        </>
+      )}
     </>
   );
   return (

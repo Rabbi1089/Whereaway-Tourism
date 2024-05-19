@@ -18,11 +18,13 @@ const AuthProvider = ({ children }) => {
 
 
   const googleLogin = () => {
+    setLoading(true)
       return signInWithPopup(auth, GoogleProvider)
   }
 
 
   const twitterLogin = () => {
+    setLoading(true)
       return signInWithPopup(auth, twitterProvider)
   }
 
@@ -32,6 +34,7 @@ const AuthProvider = ({ children }) => {
   }
 
     const createUser = (email, password) => {
+      setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     // update user profile
@@ -61,7 +64,8 @@ const AuthProvider = ({ children }) => {
     logout,
     googleLogin,
     twitterLogin,
-    updateUserProfile
+    updateUserProfile,
+    loading
   };
 
   return (

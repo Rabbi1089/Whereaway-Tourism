@@ -9,7 +9,7 @@ const Country = () => {
       </div>
    
         <div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4">
-          <img
+          <img 
             src="https://i.ibb.co/4Z1xy24/country-3.jpg"
             alt=""
             className="w-full h-full col-span-2 row-span-2 rounded shadow-sm min-h-96 md:col-start-3 md:row-start-1 bg-gray-500 aspect-square"
