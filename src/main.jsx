@@ -8,6 +8,7 @@ import AuthProvider from './provider/AuthProvider.jsx'
 import SignIn from './pages/SignIn.jsx'
 import Home from './pages/Home.jsx'
 import AddSpots from './AddSpots.jsx'
+import SpotDetails from './component/SpotDetails.jsx'
 
 const url = "http://localhost:5000/spots"
 
@@ -34,6 +35,11 @@ const router = createBrowserRouter([
         {
           path:'/addSpot',
           element : <AddSpots />
+        },
+        {
+          path:'SpotDetails/:id',
+          element :<SpotDetails/>,
+          loader :async ({params}) => fetch(`${url}/${params.id}`)
         }
 
       

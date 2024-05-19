@@ -1,8 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Spot = ({place}) => {
 
-    const {image , travelTime , spotName ,averageCost , Visitor, seasonality , description} = place
+    const {image , travelTime , spotName ,averageCost , Visitor, seasonality , description , _id} = place
 
 
   return (
@@ -37,8 +38,10 @@ const Spot = ({place}) => {
 {description.slice(0, 250)}...
         </p>
         </div>
-
+        <Link to={`SpotDetails/${_id}`}>
         <button className="btn border border-r-4 w-full">Show Details</button>
+        </Link>
+ 
       </div>
     </a>
   </div>
