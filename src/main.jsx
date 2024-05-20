@@ -13,6 +13,7 @@ import AllTouristSpot from "./pages/AllTouristSpot.jsx";
 import PrivateRoute from "./PrivateRoute/PrivateRoute.jsx";
 import MyList from "./pages/MyList.jsx";
 import UpdateList from "./pages/UpdateList.jsx";
+import Error from "./pages/Error.jsx";
 
 const url = "http://localhost:5000/spots";
 
@@ -20,6 +21,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement:<Error/>,
     children: [
       {
         path: "/",
