@@ -45,7 +45,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/myList",
-        element: <MyList />,
+        element: (
+          <PrivateRoute>
+            <MyList />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/addSpot",
@@ -62,11 +66,7 @@ const router = createBrowserRouter([
       },
       {
         path: "myList/update/:id",
-        element: (
-          <PrivateRoute>
-            <UpdateList />
-          </PrivateRoute>
-        ),
+        element: <UpdateList />,
         loader: async ({ params }) => fetch(`${url}/${params.id}`),
       },
     ],
