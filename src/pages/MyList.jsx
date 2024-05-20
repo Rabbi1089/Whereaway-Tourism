@@ -7,7 +7,7 @@ import { data } from "autoprefixer";
 //documents mongodb.com/docs/drivers/node/current/usage-examples/deleteOne/
 
 const MyList = () => {
-  const listUrl = "http://localhost:5000/myList";
+  const listUrl = "https://whereaway-server.vercel.app/myList";
 
   const { user } = useHook();
   //console.log(user);
@@ -39,7 +39,7 @@ const MyList = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         console.log(id);
-        fetch(`http://localhost:5000/spots/${id}`, {
+        fetch(`https://whereaway-server.vercel.app/spots/${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

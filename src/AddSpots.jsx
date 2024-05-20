@@ -19,7 +19,7 @@ const AddSpots = () => {
     const spot = { ...data, userEmail, displayName };
 
     //send data to server
-    fetch("http://localhost:5000/addSpot", {
+    fetch("https://whereaway-server.vercel.app/addSpot", {
       method: "post",
       headers: {
         "content-type": "application/json",

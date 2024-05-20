@@ -15,7 +15,7 @@ import MyList from "./pages/MyList.jsx";
 import UpdateList from "./pages/UpdateList.jsx";
 import Error from "./pages/Error.jsx";
 
-const url = "http://localhost:5000/spots";
+const url = "https://whereaway-server.vercel.app/spots";
 
 const router = createBrowserRouter([
   {
