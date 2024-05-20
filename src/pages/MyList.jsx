@@ -1,21 +1,24 @@
 import React, { useEffect, useState } from "react";
 import useHook from "../Hook/useHook";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import { data } from "autoprefixer";
+
+//documents mongodb.com/docs/drivers/node/current/usage-examples/deleteOne/
 
 const MyList = () => {
   const listUrl = "http://localhost:5000/myList";
 
   const { user } = useHook();
-  console.log(user);
+  //console.log(user);
   const [userData, setUserData] = useState(null);
+  console.log(userData)
 
   useEffect(() => {
-    // Fetch user data when the component mounts
     if (user?.email) {
       fetch(`${listUrl}/${user?.email}`)
         .then((res) => res.json())
         .then((data) => {
-          console.log("Fetched data:", data);
           setUserData(data);
         })
         .catch((error) => {
@@ -23,7 +26,37 @@ const MyList = () => {
         });
     }
   }, [user]);
-  console.log("UserData:", userData);
+
+  const handleDelete = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        console.log(id);
+        fetch(`http://localhost:5000/spots/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount === 1) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+              const remaining = userData.filter(spot => spot._id !== id);
+              setUserData(remaining);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="overflow-x-auto">
@@ -31,7 +64,7 @@ const MyList = () => {
         {/* head */}
         <thead>
           <tr>
-            <th></th>
+            <th>Serial</th>
             <th>SpotName</th>
             <th>Country Name</th>
             <th>Location</th>
@@ -41,24 +74,31 @@ const MyList = () => {
         </thead>
         <tbody>
           {/* row 1 */}
-          {userData?.map((item) => (
-            <tr className="bg-base-200">
-              <th>1</th>
+          {userData?.map((item, idx) => (
+            <tr className="bg-base-200" id={idx}>
+              <th>{idx + 1}</th>
               <td>{item.spotName}</td>
               <td>{item.countryName}</td>
               <td>{item.locations}</td>
               <td>
                 {" "}
                 <Link to={`update/${item._id}`}>
-                  <button
-                    className="btn text-sm font-medium"
-                    type="button"
-                  >
+                  <button className="btn text-sm font-medium" type="button">
                     Update
                   </button>
                 </Link>
               </td>
-              <td><button onClick={() =>  {hanldeDelete(item._id)} } className="btn text-sm" type="button">Delete</button></td>
+              <td>
+                <button
+                  onClick={() => {
+                    handleDelete(item._id);
+                  }}
+                  className="btn text-sm"
+                  type="button"
+                >
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>

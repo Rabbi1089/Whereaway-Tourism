@@ -3,7 +3,7 @@ import Spot from "./Spot";
 
 
 const AllSpot = ({ spot }) => {
-  console.log(typeof spot);
+
   return (
     <div>
       <section className="text-gray-800 mt-4 max-w-[1400px]">
@@ -35,8 +35,8 @@ const AllSpot = ({ spot }) => {
             </div>
           </div>
           <div className="grid justify-center grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {spot.map((place) => (
-              <Spot place={place}></Spot>
+            {spot.map((place , idx) => (
+              <Spot place={place} id={idx}></Spot>
             ))}
           </div>
         </div>
